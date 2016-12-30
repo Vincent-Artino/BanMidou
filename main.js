@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 console.log("jhvd jd");
 
 app.post('/webhook', function (req, res) {
-	console.log(req.body.action)	 
+	console.log(req.body.result.action)	 
 });
   
 app.listen(port);
