@@ -8,7 +8,7 @@ port = Number(process.env.PORT || 5000);
 console.log("jhvd jd");
 
 app.post('/webhook', function (req, res) {
-	console.log(req[0])	 
+	console.log(req.event)	 
  /*// Make sure this is a page subscription
   if (data.object === 'page') {
 
