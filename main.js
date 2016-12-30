@@ -26,7 +26,7 @@ function weather(req){
 		return {}
 	else{
 	query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')";
-	urlQuery = baseurl + query + "&format=json";
+	urlQuery = baseurl + encodeURIComponent(query) + "&format=json";
 	console.log(query);
 	resp = request({
 	    url: urlQuery,
