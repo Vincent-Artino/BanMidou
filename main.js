@@ -35,7 +35,7 @@ function weather(req){
 	console.log("error");
     	if (!error && response.statusCode === 200) {
 		console.log("just kidding");
-	        console.log(body) 
+	        console.log(body.results); 
 		city = body.results.channel.location.city;
 		text = body.results.channel.item.condition.text;
 		temp = body.results.channel.item.condition.temp;
