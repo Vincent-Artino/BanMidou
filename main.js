@@ -53,6 +53,7 @@ function weather(req){
 		return {};
 	    }
 	});
+	console.log(resp);
 	return resp;
 	}	
 }
