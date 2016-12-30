@@ -4,11 +4,15 @@ request = require('request');
 
 var app = express();
 port = Number(process.env.PORT || 5000);
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 console.log("jhvd jd");
 
 app.post('/webhook', function (req, res) {
-	console.log(JSON.stringify(req))	 
+	console.log(req.body)	 
  /*// Make sure this is a page subscription
   if (data.object === 'page') {
 
