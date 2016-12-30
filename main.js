@@ -21,7 +21,7 @@ if(req.body.result.action == "weather"){
 
 function weather(req){
 	baseurl = "https://query.yahooapis.com/v1/public/yql?";
-	city = req.body.result.parameters[0];
+	city = req.body.result.parameters["geo-city"];
 	console.log(city);
 	return city;
 }
