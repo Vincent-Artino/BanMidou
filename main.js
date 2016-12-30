@@ -1,8 +1,8 @@
 express = require('express');
 var app = express();
-Console.log("jhvd jd");
+console.log("jhvd jd");
 app.post('/webhook', function (req, res) {
-Console.log("vh hdv");
+console.log("vh hdv");
   var data = req.body;
 
   // Make sure this is a page subscription
