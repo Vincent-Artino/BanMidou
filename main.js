@@ -35,7 +35,6 @@ function weather(req){
 	console.log("error");
     	if (!error && response.statusCode === 200) {
 		console.log("just kidding");
-	        console.log(body.query.results);
 		if(body.query.results!=null){ 
 		city = body.query.results.channel.location.city;
 		text = body.query.results.channel.item.condition.text;
@@ -53,7 +52,7 @@ function weather(req){
 		res.send({});
 	    }
 	});
-	console.log("hello : "+resp);
+	console.log(resp+"hello");
 	}	
 }
 
