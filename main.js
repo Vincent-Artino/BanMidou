@@ -1,6 +1,7 @@
 express = require('express');
 https = require('https'),  
 request = require('request');
+var bodyParser = require('body-parser')
 
 var app = express();
 port = Number(process.env.PORT || 5000);
