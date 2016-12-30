@@ -9,7 +9,7 @@ console.log("jhvd jd");
 
 app.post('/webhook', function (req, res) {
 console.log("vh hdv");
-	console.log(req); 
+	console.log(req.result); 
  /*// Make sure this is a page subscription
   if (data.object === 'page') {
 
