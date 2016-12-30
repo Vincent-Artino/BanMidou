@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
-	return weather(req);
+	weather(req);
 }
 
 });
@@ -23,7 +23,7 @@ function weather(req){
 	baseurl = "https://query.yahooapis.com/v1/public/yql?q=";
 	city = req.body.result.parameters["geo-city"];
 	if(city == null)
-		return {}
+		return ;
 	else{
 	query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')";
 	urlQuery = baseurl + encodeURIComponent(query) + "&format=json";
@@ -43,18 +43,17 @@ function weather(req){
 		temperature =  body.query.results.channel.units.temperature;
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);
-		 return {
+		 res.send( {
 			"speech": speech,
 			"displayText": speech,
 			"source": "apiai-weather-webhook-sample"
-		    }
+		    });
 		}
 		else
-		return {};
+		res.send({});
 	    }
 	});
-	console.log(resp);
-	return resp;
+	console.log("hello : "+resp);
 	}	
 }
 
