@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
-	city = weather(req);
+	return weather(req);
 }
 
 });
@@ -28,16 +28,28 @@ function weather(req){
 	query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')";
 	urlQuery = baseurl + query + "&format=json";
 	console.log(query);
-	request({
+	resp = request({
 	    url: urlQuery,
 	    json: true
 	}, function (error, response, body) {
 	console.log("error");
     	if (!error && response.statusCode === 200) {
 		console.log("just kidding");
-	        console.log(body) // Print the json response
+	        console.log(body) 
+		city = body.results.channel.location.city;
+		text = body.results.channel.item.condition.text;
+		temp = body.results.channel.item.condition.temp;
+		temperature =  body.results.channel.units.temperature;
+		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
+		console.log(speech);
+		 return {
+			"speech": speech,
+			"displayText": speech,
+			"source": "apiai-weather-webhook-sample"
+		    }
 	    }
 	});
+	return resp;
 	}	
 }
 
