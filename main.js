@@ -1,11 +1,17 @@
 express = require('express');
+https = require('https'),  
+request = require('request');
+
 var app = express();
+port = Number(process.env.PORT || 5000);
+
 console.log("jhvd jd");
+
 app.post('/webhook', function (req, res) {
 console.log("vh hdv");
   var data = req.body;
-
-  // Make sure this is a page subscription
+	console.log(data);
+  /*// Make sure this is a page subscription
   if (data.object === 'page') {
 
     // Iterate over each entry - there may be multiple if batched
@@ -22,17 +28,12 @@ console.log("vh hdv");
         }
       });
     });
-
-    // Assume all went well.
-    //
-    // You must send back a 200, within 20 seconds, to let us know
-    // you've successfully received the callback. Otherwise, the request
-    // will time out and we will keep trying to resend.
     res.sendStatus(200);
-  }
+  }*/
 });
   
 function receivedMessage(event) {
   // Putting a stub for now, we'll expand it in the following steps
   console.log("Message data: ", event.message);
 }  
+app.listen(port);
