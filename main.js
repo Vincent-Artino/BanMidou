@@ -22,8 +22,22 @@ if(req.body.result.action == "weather"){
 function weather(req){
 	baseurl = "https://query.yahooapis.com/v1/public/yql?";
 	city = req.body.result.parameters["geo-city"];
-	console.log(city);
-	return city;
+	if(city == null)
+		return {}
+	else{
+	query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')";
+	urlQuery = baseurl + encodeURIComponent('q'+query); + "&format=json";
+	request({
+	    url: urlQuery,
+	    json: true
+	}, function (error, response, body) {
+	console.log("error");
+    	if (!error && response.statusCode === 200) {
+		console.log("just kidding");
+	        console.log(body) // Print the json response
+	    }
+	});
+	}	
 }
 
 app.listen(port);
