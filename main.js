@@ -16,7 +16,7 @@ if(req.body.result.action == "weather"){
 	console.log("weather request");
 	weather(req,res);
 	console.log("hello");
-	sendMessage(speech,res);
+	//sendMessage(speech,res);
 }
 
 });
