@@ -24,16 +24,14 @@ if(req.body.result.action == "weather"){
 	console.log("hello");
 }
 else if(req.body.result.action == "duck"){
-	console.log(req.body.result);
-	givenName = req.body.result.parameters['given-name'];
-	lastname = req.body.result.parameters['last-name'];
-	if(lastname!=null)
-	name = givenName + " " + lastname;
-	else
-	name = givenName;
-	ddg.query(name, options, function(err, data){
-   	 console.log(data.AbstractText);
-	sendMessage(data.AbstractText,res);
+		
+
+	str = req.body.result.resolvedQuery;
+	if(str.includes("tell me about"))
+		str = str.replace("tell me about","");
+	ddg.query(str, options, function(err, data){
+   	console.log(data.Answer);
+	sendMessage(data.Answer,res);
 });
 } 
 
