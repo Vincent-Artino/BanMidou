@@ -33,8 +33,12 @@ else if(req.body.result.action == "duck"){
 	ddg.query(str, options, function(err, data){
 	console.log("yea ... ");
    	console.log(data.AbstractText);
-	link = "for more info refer : \n\n" + data.AbstractURL;
+	link = "\n\nfor more info refer : \n\n" + data.AbstractURL;
+	if(data.AbstractText!=null)
 	sendMessage(data.AbstractText + link,res);
+	else 
+	sendMessage("no info available",res);
+	
 });
 } 
 
