@@ -43,7 +43,8 @@ function weather(req,res){
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);	
 		}
-		res.json({"displayText":"information not available"});
+		  res.setHeader('Content-Type', 'application/json');
+		  res.send(JSON.stringify({ "displayText": "Yo" }));
 		console.log("empty");
 	    }
 	});
