@@ -15,6 +15,7 @@ app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
 	weather(req,res);
+	res.json({"displayText": "bar"});
 }
 
 });
@@ -43,8 +44,7 @@ function weather(req,res){
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);	
 		}
-		  res.setHeader('Content-Type', 'application/json');
-		  res.send(JSON.stringify({ "displayText": "Yo" }));
+		res.json({"displayText": "bar"});
 		console.log("empty");
 	    }
 	});
