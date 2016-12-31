@@ -16,6 +16,7 @@ if(req.body.result.action == "weather"){
 	console.log("weather request");
 	weather(req,res);
 	res.json({"displayText": "bar"});
+	res.end();
 }
 
 });
@@ -44,7 +45,7 @@ function weather(req,res){
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);	
 		}
-		res.json({"displayText": "bar"});
+//		res.json({"displayText": "bar"});
 		console.log("empty");
 	    }
 	});
