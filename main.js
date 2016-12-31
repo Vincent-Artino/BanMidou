@@ -49,8 +49,6 @@ function weather(req,res){
 		console.log("empty");
 	    }
 	});
-	console.log("yaaaaaaaaaaaaaaaaayyyyyyy");
-	console.log(city + " " + text + " " + temp);
 	}	
 }
 
