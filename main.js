@@ -14,12 +14,12 @@ app.use(bodyParser.json());
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
-	weather(req);
+	weather(req,res);
 }
 
 });
 
-function weather(req){
+function weather(req,res){
 	baseurl = "https://query.yahooapis.com/v1/public/yql?q=";
 	city = req.body.result.parameters["geo-city"];
 	if(city == null)
@@ -42,10 +42,10 @@ function weather(req){
 		temperature =  body.query.results.channel.units.temperature;
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);
-		//res.json({"displayText" : speech});	
+		res.json({"displayText" : speech});	
 			
 		}
-		//res.json({"displayText":"information not available"});
+		res.json({"displayText":"information not available"});
 		console.log("empty");
 	    }
 	});
