@@ -10,8 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 var speech;
-var DDG = require('node-ddg-api').DDG;
-var ddg = new DDG('my-app-name');
+ddg = require('ddg');
 
 
 app.post('/webhook', function (req, res) {
@@ -22,9 +21,10 @@ if(req.body.result.action == "weather"){
 }
 else if(req.body.result.action == "duck"){
 	console.log("in ddg");
-	ddg.instantAnswer('superman', {skip_disambig: '0'}, function(err, response) {
- 	 console.log(response);
-	});
+	ddg.query('bioshock', options, function(err, data){
+   	 console.log(data.AbstractText);
+	sendMessage(data.AbstractText,res);
+});
 } 
 
 });
