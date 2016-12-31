@@ -14,9 +14,15 @@ app.use(bodyParser.json());
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
-	weather(req,res);
-	res.json({"displayText": "bar"});
-	res.end();
+	//weather(req,res);
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({ 
+	speech: "okay", 
+        displayText: "nee mamma", 
+        source : "item"
+  	});
+   	response.end(json);
+	
 }
 
 });
