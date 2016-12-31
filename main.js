@@ -21,6 +21,7 @@ if(req.body.result.action == "weather"){
 	console.log("hello");
 }
 else if(req.body.result.action == "duck"){
+	console.log("in ddg");
 	ddg.instantAnswer('superman', {skip_disambig: '0'}, function(err, response) {
  	 console.log(response);
 	});
