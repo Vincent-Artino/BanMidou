@@ -44,8 +44,7 @@ function weather(req){
 		console.log(speech);
 		res.json({"speech" : speech});		
 		}
-		else
-		res.send({});
+		console.log("empty");
 	    }
 	});
 	}	
