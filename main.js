@@ -10,14 +10,21 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 var speech;
+var DDG = require('node-ddg-api').DDG;
+var ddg = new DDG('my-app-name');
+
 
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
 	weather(req,res);
 	console.log("hello");
-	//sendMessage(speech,res);
 }
+else if(req.body.result.action == "duck"){
+	ddg.instantAnswer('superman', {skip_disambig: '0'}, function(err, response) {
+ 	 console.log(response);
+	});
+} 
 
 });
 
