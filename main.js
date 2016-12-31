@@ -34,7 +34,7 @@ else if(req.body.result.action == "duck"){
 	console.log("yea ... ");
    	console.log(data.AbstractText);
 	link = "\n\nfor more info refer : \n\n" + data.AbstractURL;
-	if(data.AbstractText!=null)
+	if(data.AbstractText!="")
 	sendMessage(data.AbstractText + link,res);
 	else 
 	sendMessage("no info available",res);
