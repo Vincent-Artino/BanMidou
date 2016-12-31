@@ -41,9 +41,7 @@ function weather(req,res){
 		temp = body.query.results.channel.item.condition.temp;
 		temperature =  body.query.results.channel.units.temperature;
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
-		console.log(speech);
-		res.json({"displayText" : speech});	
-			
+		console.log(speech);	
 		}
 		res.json({"displayText":"information not available"});
 		console.log("empty");
