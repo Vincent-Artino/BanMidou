@@ -11,7 +11,11 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 var speech;
 ddg = require('ddg');
-
+options = {
+        "useragent": "My duckduckgo app",
+        "no_redirects": "1",
+        "no_html": "0",
+}
 
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
