@@ -24,8 +24,7 @@ if(req.body.result.action == "weather"){
 	console.log("hello");
 }
 else if(req.body.result.action == "duck"){
-		
-
+	console.log("in ddg");
 	str = req.body.result.resolvedQuery;
 	if(str.includes("tell me about"))
 		str = str.replace("tell me about","");
