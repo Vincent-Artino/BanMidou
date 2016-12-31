@@ -32,8 +32,9 @@ else if(req.body.result.action == "duck"){
 	console.log(str);
 	ddg.query(str, options, function(err, data){
 	console.log("yea ... ");
-   	console.log(data);
-	sendMessage(data.Answer,res);
+   	console.log(data.AbstractText);
+	link = "for more info refer : \n\n" + data.AbstractURL;
+	sendMessage(data.AbstractText + link,res);
 });
 } 
 
