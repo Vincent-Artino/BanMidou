@@ -3,7 +3,7 @@ https = require('https'),
 request = require('request');
 var app = express();
 port = Number(process.env.PORT || 5000);
-
+var city,text,temp,temperature;
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({
     extended: true
@@ -42,13 +42,14 @@ function weather(req){
 		temperature =  body.query.results.channel.units.temperature;
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);
-		res.json({"displayText" : speech});	
+		//res.json({"displayText" : speech});	
 			
 		}
-		res.json({"displayText":"information not available"});
+		//res.json({"displayText":"information not available"});
 		console.log("empty");
 	    }
 	});
+	console.log("yaaaaaaaaaaaaayyyyy");
 	}	
 }
 
