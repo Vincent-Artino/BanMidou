@@ -9,13 +9,14 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
+var speech;
 
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
 	weather(req,res);
-	
+	console.log("hello");
+	sendMessage(speech,res);
 }
 
 });
@@ -44,7 +45,7 @@ function weather(req,res){
 			temperature =  body.query.results.channel.units.temperature;
 			speech1 = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 			console.log(speech);	
-			sendMessage(text,res);	
+			sendMessage(speech1,res);	
    	        }
 	}
 	});
@@ -53,8 +54,8 @@ function weather(req,res){
 function sendMessage(text,res){
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
-	speech : speech1, 
-        displayText : speech1, 
+	speech : text, 
+        displayText : text, 
         source : "item"
   	});
    	res.end(json);		
