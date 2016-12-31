@@ -46,6 +46,7 @@ function weather(req){
 			
 		}
 		res.json({"displayText":"information not available"});
+		console.log("empty");
 	    }
 	});
 	}	
