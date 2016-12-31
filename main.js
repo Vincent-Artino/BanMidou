@@ -43,18 +43,20 @@ function weather(req,res){
 		temperature =  body.query.results.channel.units.temperature;
 		speech1 = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);	
-		res.writeHead(200, {"Content-Type": "application/json"});
-		var json = JSON.stringify({ 
-		speech : speech1, 
-	        displayText : speech1, 
-	        source : "item"
-	  	});
-	   	res.end(json);		
-		}
-		console.log("chik chika");	 
+		sendMessage(text,res);	
 	   }
 	});
 	}	
 }
-
+function sendMessage(text,res){
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({ 
+	speech : speech1, 
+        displayText : speech1, 
+        source : "item"
+  	});
+   	res.end(json);		
+	}
+	console.log("chik chika");	 
+}
 app.listen(port);
