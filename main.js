@@ -24,7 +24,7 @@ if(req.body.result.action == "weather"){
 	console.log("hello");
 }
 else if(req.body.result.action == "duck"){
-	console.log("in ddg");
+	console.log(req.body.result.parameters);
 	ddg.query('bioshock', options, function(err, data){
    	 console.log(data.AbstractText);
 	sendMessage(data.AbstractText,res);
