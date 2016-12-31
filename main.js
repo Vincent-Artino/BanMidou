@@ -31,6 +31,7 @@ else if(req.body.result.action == "duck"){
 		str = str.replace("tell me about","");
 	console.log(str);
 	ddg.query(str, options, function(err, data){
+	console.log("yea ... ");
    	console.log(data.Answer);
 	sendMessage(data.Answer,res);
 });
