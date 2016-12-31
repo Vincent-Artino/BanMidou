@@ -17,8 +17,8 @@ if(req.body.result.action == "weather"){
 	//weather(req,res);
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
-	speech: "okay", 
-        displayText: "nee mamma", 
+	speech : "cvjkliugf cvbnljbv", 
+        displayText : "nee mamma", 
         source : "item"
   	});
    	res.end(json);
