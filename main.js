@@ -43,14 +43,14 @@ function weather(req,res){
 		temperature =  body.query.results.channel.units.temperature;
 		speech = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 		console.log(speech);	
-		}
 		res.writeHead(200, {"Content-Type": "application/json"});
 		var json = JSON.stringify({ 
 		speech : speech, 
 	        displayText : speech, 
 	        source : "item"
 	  	});
-	   	res.end(json);
+	   	res.end(json);		
+		}
 		console.log("chik chika");	 
 	   }
 	});
