@@ -21,7 +21,7 @@ if(req.body.result.action == "weather"){
         displayText: "nee mamma", 
         source : "item"
   	});
-   	response.end(json);
+   	res.end(json);
 	
 }
 
