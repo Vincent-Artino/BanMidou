@@ -26,8 +26,10 @@ if(req.body.result.action == "weather"){
 else if(req.body.result.action == "duck"){
 	console.log("in ddg");
 	str = req.body.result.resolvedQuery;
-	if(str.includes("tell me about"))
+	console.log(str);	
+	if(str.includes("tell me about "))
 		str = str.replace("tell me about","");
+	console.log(str);
 	ddg.query(str, options, function(err, data){
    	console.log(data.Answer);
 	sendMessage(data.Answer,res);
