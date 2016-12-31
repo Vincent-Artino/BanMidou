@@ -24,7 +24,7 @@ if(req.body.result.action == "weather"){
 	console.log("hello");
 }
 else if(req.body.result.action == "duck"){
-	console.log();
+	console.log(req.body.result);
 	givenName = req.body.result.parameters['given-name'];
 	lastname = req.body.result.parameters['last-name'];
 	if(lastname!=null)
