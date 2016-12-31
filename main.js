@@ -34,17 +34,19 @@ function weather(req,res){
 	    json: true
 	}, function (error, response, body) {
 	console.log("error");
-    	if (!error && response.statusCode === 200) {
+    	if (!error && response.statusCode === 200)
+	 {
 		console.log("just kidding");
 		if(body.query.results!=null){ 
-		city = body.query.results.channel.location.city;
-		text = body.query.results.channel.item.condition.text;
-		temp = body.query.results.channel.item.condition.temp;
-		temperature =  body.query.results.channel.units.temperature;
-		speech1 = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
-		console.log(speech);	
-		sendMessage(text,res);	
-	   }
+			city = body.query.results.channel.location.city;
+			text = body.query.results.channel.item.condition.text;
+			temp = body.query.results.channel.item.condition.temp;
+			temperature =  body.query.results.channel.units.temperature;
+			speech1 = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
+			console.log(speech);	
+			sendMessage(text,res);	
+   	        }
+	}
 	});
 	}	
 }
@@ -56,7 +58,6 @@ function sendMessage(text,res){
         source : "item"
   	});
    	res.end(json);		
-	}
 	console.log("chik chika");	 
 }
 app.listen(port);
