@@ -24,8 +24,14 @@ if(req.body.result.action == "weather"){
 	console.log("hello");
 }
 else if(req.body.result.action == "duck"){
-	console.log(req.body.result.parameters);
-	ddg.query('bioshock', options, function(err, data){
+	console.log();
+	givenName = req.body.result.parameters['given-name'];
+	lastname = req.body.result.parameters['last-name'];
+	if(lastname!=null)
+	name = givenName + " " + lastname;
+	else
+	name = givenName;
+	ddg.query(name, options, function(err, data){
    	 console.log(data.AbstractText);
 	sendMessage(data.AbstractText,res);
 });
