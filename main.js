@@ -50,7 +50,7 @@ function weather(req,res){
 	if(city == null)
 		return ;
 	else{
-	urlQuery = baseurl+city+"&units=metric";
+	urlQuery = baseurl+city+"&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6";
 	request({
 	    url: urlQuery,
 	    json: true
