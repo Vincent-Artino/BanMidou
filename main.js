@@ -50,7 +50,6 @@ function weather(req,res){
 	if(city == null)
 		return ;
 	else{
-	urlQuery = baseurl+city+"&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6";
 	request({
 	    url: "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6",
 	    json: true
@@ -60,7 +59,7 @@ function weather(req,res){
     	if (!error)
 	 {
 		console.log("just kidding");
-		if(body.query.results!=null){ 
+		if(body!=null){ 
 			city = body['name'];
 			text = body.weather.description;
 			temp = body.main.temp;
