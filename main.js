@@ -16,7 +16,7 @@ options = {
         "no_redirects": "1",
         "no_html": "0",
 }
-
+//okay
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
 	console.log("weather request");
