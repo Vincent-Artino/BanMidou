@@ -42,8 +42,7 @@ else if(req.body.result.action == "duck"){
 });
 } 
 else if(req.body.result.action == "help"){
-	sendMessage("Choose any action");
-	sendButton("new button",res);
+	sendMessage("Choose any action",res);
 }
 
 
