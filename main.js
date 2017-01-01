@@ -42,7 +42,7 @@ else if(req.body.result.action == "duck"){
 });
 } 
 else if(req.body.result.action == "help"){
-	sendMessage("Choose any action",res);
+	sendButtonMessage("Choose any action",res);
 }
 
 
@@ -81,10 +81,47 @@ function sendMessage(text,res){
 	speech : text, 
         displayText : text, 
         source : "item"
-	
   	});
    	res.end(json);		
 }
+function sendButtonMessage("text",res){
+	console.log("dvbn");	
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({ 
+	speech : text, 
+        displayText : text, 
+	data : {
+	facebook :{
+  	        "recipient":{
+   	 		"id":"USER_ID"
+		  			},
+			  "message":{
+			    "attachment":{
+			      "type":"template",
+			      "payload":{
+				"template_type":"button",
+				"text":"What do you want to do next?",
+				"buttons":[
+				  {
+				    "type":"web_url",
+				    "url":"https://petersapparel.parseapp.com",
+				    "title":"Show Website"
+				  },
+				  {
+				    "type":"postback",
+				    "title":"Start Chatting",
+				    "payload":"USER_DEFINED_PAYLOAD"
+				  }
+				]
+			      }
+			    }
+		}	
+	}
+        source : "item"
+  	});
+   	res.end(json);		
 
+		
+}
 
 app.listen(port);
