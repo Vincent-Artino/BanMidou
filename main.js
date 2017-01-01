@@ -93,15 +93,19 @@ function sendButtonMessage(text,res){
         displayText : text, 
 	data : {
 	facebook: {
-	    attachment: {
-	      type: "template",
-  		payload: {
-			"template_type":"button",
-        		"text":"What do you want to do next?",	
-			}
-	    	}
-		}
-	},
+    	attachment: {
+      	type: "template",
+      	payload: {
+      	    template_type: "button",
+      	    text : "what next",
+      	    buttons:[{
+      	      type: "postback",
+      	      title: "weather",
+      	      payload: "not much"
+          }]
+      }
+    }
+  }	},
         source : "item"
   	});
    	res.end(json);		
