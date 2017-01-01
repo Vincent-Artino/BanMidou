@@ -85,7 +85,7 @@ function sendMessage(text,res){
    	res.end(json);		
 }
 
-function sendButtonMessage("text",res){
+function sendButtonMessage(text,res){
 	console.log("dvbn");	
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
