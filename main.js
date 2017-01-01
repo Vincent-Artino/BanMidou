@@ -56,6 +56,7 @@ function weather(req,res){
 	    json: true
 	}, function (error, response, body) {
 	console.log("error");
+	console.log(urlQuery);
     	if (!error && response.statusCode === 200)
 	 {
 		console.log("just kidding");
