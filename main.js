@@ -80,19 +80,8 @@ function sendMessage(text,res){
 	var json = JSON.stringify({ 
 	speech : text, 
         displayText : text, 
-        source : "item",
-	data : {
-	facebook : {	
-		"buttons":[
-			      {
-				"type":"postback",
-				"title":"help",
-				"payload":"DEVELOPER_DEFINED_PAYLOAD"
-			      }
-		    ]
-		}
-	}
-   	
+        source : "item"
+	
   	});
    	res.end(json);		
 }
