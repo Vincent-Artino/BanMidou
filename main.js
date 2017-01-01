@@ -45,15 +45,13 @@ else if(req.body.result.action == "duck"){
 });
 
 function weather(req,res){
-	baseurl = "https://query.yahooapis.com/v1/public/yql?q=";
+	baseurl = "api.openweathermap.org/data/2.5/weather?q=";
 	city = req.body.result.parameters["geo-city"];
 	if(city == null)
 		return ;
 	else{
-	query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')";
-	urlQuery = baseurl + encodeURIComponent(query) + "&format=json";
-	console.log(encodeURIComponent(query));
-	resp = request({
+	urlQuery = baseurl+city+"&units=metric";
+	request({
 	    url: urlQuery,
 	    json: true
 	}, function (error, response, body) {
@@ -62,10 +60,10 @@ function weather(req,res){
 	 {
 		console.log("just kidding");
 		if(body.query.results!=null){ 
-			city = body.query.results.channel.location.city;
-			text = body.query.results.channel.item.condition.text;
-			temp = body.query.results.channel.item.condition.temp;
-			temperature =  body.query.results.channel.units.temperature;
+			city = body['name'];
+			text = body.weather.description;
+			temp = body.main.temp;
+			temperature =  "degrees celcius";
 			speech1 = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
 			console.log(speech);	
 			sendMessage(speech1,res);	
