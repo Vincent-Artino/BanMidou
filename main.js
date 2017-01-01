@@ -95,11 +95,12 @@ function sendButtonMessage(text,res){
 	facebook: {
 	    attachment: {
 	      type: "template",
-	      payload: {
-		"template_type":"button",
-        	"text":"What do you want to do next?",	
+  		payload: {
+			"template_type":"button",
+        		"text":"What do you want to do next?",	
+			}
+	    	}
 		}
-	    }
 	},
         source : "item"
   	});
