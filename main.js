@@ -52,7 +52,7 @@ function weather(req,res){
 	else{
 	urlQuery = baseurl+city+"&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6";
 	request({
-	    url: urlQuery,
+	    url: "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6",
 	    json: true
 	}, function (error, response, body) {
 	console.log("error");
