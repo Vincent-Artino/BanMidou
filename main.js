@@ -60,7 +60,7 @@ function weather(req,res){
 		console.log("just kidding");
 		if(body!=null){ 
 			city = body['name'];
-			text = body.weather.description;
+			text = body.weather[0].description;
 			temp = body.main.temp;
 			temperature =  "° celcius";
 			speech1 = "Today in " + city + ": , the temperature is " + temp + " " + temperature;
