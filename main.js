@@ -91,7 +91,7 @@ function sendButton(text,res){
 	var json = JSON.stringify({ 
 	speech : text, 
         displayText : text, 
-        source : "item"
+        source : "item",
 	data : {
 	facebook : {	
 		"buttons":[
