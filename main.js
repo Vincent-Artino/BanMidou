@@ -41,6 +41,11 @@ else if(req.body.result.action == "duck"){
 	
 });
 } 
+else if(req.body.result.action == "help"){
+	sendMessage("Choose any action");
+	sendButton("new button",res);
+}
+
 
 });
 
@@ -79,6 +84,28 @@ function sendMessage(text,res){
         source : "item"
   	});
    	res.end(json);		
-	console.log("chik chika");	 
 }
+
+function sendButton(text,res){
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({ 
+	speech : text, 
+        displayText : text, 
+        source : "item"
+	data : {
+	facebook : {	
+		"buttons":[
+			      {
+				"type":"postback",
+				"title":"help",
+				"payload":"DEVELOPER_DEFINED_PAYLOAD"
+			      }
+		    ]
+		}
+	}
+  	});
+   	res.end(json);		
+
+}
+
 app.listen(port);
