@@ -51,7 +51,7 @@ function weather(req,res){
 		return ;
 	else{
 	request({
-	    url: "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6",
+	    url: "http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=2a50a876284147f4c8e58ae96e610bc6",
 	    json: true
 	}, function (error, response, body) {
 	console.log("error");
@@ -63,7 +63,9 @@ function weather(req,res){
 			text = body.weather.description;
 			temp = body.main.temp;
 			temperature =  "degrees celcius";
-			speech1 = "Today in " + city + ": " + text + ", the temperature is " + temp + " " + temperature;
+			speech1 = "Today in " + city + ": ", the temperature is " + temp + " " + temperature;
+			if(text!=null)
+			speech1 = speech1 + text;
 			console.log(speech);	
 			sendMessage(speech1,res);	
    	        }
