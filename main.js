@@ -42,7 +42,7 @@ else if(req.body.result.action == "duck"){
 });
 } 
 else if(req.body.result.action == "help"){
-	sendButtonMessage("Choose any action",res);
+	//sendButtonMessage("Choose any action",res);
 }
 
 
