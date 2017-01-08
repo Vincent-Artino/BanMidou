@@ -63,7 +63,9 @@ function weather(req,res){
 	 {
 		console.log("just kidding");
 		if(body!=null){ 
+			text = "";
 			city = body['name'];
+			if(body.weather!=null)			
 			text = body.weather[0].description;
 			temp = body.main.temp;
 			temperature =  "° celcius";
