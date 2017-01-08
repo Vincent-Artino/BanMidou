@@ -50,7 +50,7 @@ else if(req.body.result.action == "duck"){
 else if(req.body.result.action == "help"){
 	//sendButtonMessage("Choose any action",res);
 }
-else if(req.body.result.action == "gif"){
+else if(req.body.result.action == "Gifs"){
 	console.log("hjdv skd");
 	request({
 	url : "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC",	    
