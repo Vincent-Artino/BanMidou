@@ -10,7 +10,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 var speech;
-ddg = require('ddg');
+var DDG = require('node-ddg-api').DDG;
+var ddg = new DDG('sarah');
 options = {
         "useragent": "My duckduckgo app",
         "no_redirects": "1",
@@ -30,7 +31,12 @@ else if(req.body.result.action == "duck"){
 	if(str.includes("tell me about "))
 		str = str.replace("tell me about ","");
 	console.log(str);
-	ddg.query(str, options, function(err, data){
+	ddg.instantAnswer(str, {skip_disambig: '0'}, function(err, response) {
+	  console.log("yea ... ");	
+	  console.log(response);
+	  //sendMessage(response);
+	});	
+	/*ddg.query(str, options, function(err, data){
 	console.log("yea ... ");
    	console.log(data.AbstractText);
 	link = "\n\nfor more info refer : \n\n" + data.AbstractURL;
@@ -39,7 +45,7 @@ else if(req.body.result.action == "duck"){
 	else 
 	sendMessage("no info available",res);
 	
-});
+});*/
 } 
 else if(req.body.result.action == "help"){
 	//sendButtonMessage("Choose any action",res);
