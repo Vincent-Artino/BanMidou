@@ -50,6 +50,16 @@ else if(req.body.result.action == "duck"){
 else if(req.body.result.action == "help"){
 	//sendButtonMessage("Choose any action",res);
 }
+else if(req.body.result.action == "gif"){
+	request({
+	url : "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC",	    
+	json: true
+	}, function (error, response, body) {
+		console.log(response);
+		
+	}	
+});
+}
 
 
 });
@@ -123,4 +133,5 @@ function sendButtonMessage(text,res){
 
 		
 }
+
 app.listen(port);
