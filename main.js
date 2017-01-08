@@ -56,6 +56,7 @@ else if(req.body.result.action == "Gifs"){
 	url : "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC",	    
 	json: true
 	}, function (error, response, body) {
+		sendMessage(body.data['image-url'],res);
 		console.log(response);
 	});
 }
