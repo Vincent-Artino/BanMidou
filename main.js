@@ -65,13 +65,16 @@ function weather(req,res){
 		if(body!=null){ 
 			text = "";
 			city = body['name'];
-			if(body.weather!=null)			
+			if(body.weather!=null)	{		
 			text = body.weather[0].description;
 			temp = body.main.temp;
 			temperature =  "° celcius";
 			speech1 = "Today in " + city + ": "+text+", the temperature is " + temp + " " + temperature;
 			console.log(speech);	
 			sendMessage(speech1,res);	
+			}
+			else
+			console.log("messed up");
    	        }
 	}
 	});
