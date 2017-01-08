@@ -57,8 +57,7 @@ else if(req.body.result.action == "gif"){
 	}, function (error, response, body) {
 		console.log(response);
 		
-	}	
-});
+	});
 }
 
 
