@@ -56,7 +56,7 @@ else if(req.body.result.action == "Gifs"){
 	url : "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC",	    
 	json: true
 	}, function (error, response, body) {
-		sendMessage(response.body.data['image_url'],res);
+		sendIMessage(response.body.data['image_url'],res);
 		console.log(response.body.data['image_url']);
 	});
 }
@@ -129,9 +129,26 @@ function sendButtonMessage(text,res){
   }	},
         source : "item"
   	});
+   	res.end(json);				
+}
+function sendIMessage(url1,res){
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({ 
+	speech : "enjoy random Gif", 
+        displayText : "enjoy random Gif", 
+	data : {
+	facebook : {
+	attachment : {
+	type : "image",
+	payload : {
+	url : url1	
+	}	
+	}	
+	}	
+	}
+        source : "item"
+  	});
    	res.end(json);		
 
-		
 }
-
 app.listen(port);
