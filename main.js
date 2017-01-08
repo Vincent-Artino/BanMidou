@@ -28,7 +28,7 @@ else if(req.body.result.action == "duck"){
 	str = req.body.result.resolvedQuery;
 	console.log(str);	
 	if(str.includes("tell me about "))
-		str = str.replace("tell me about","");
+		str = str.replace("tell me about ","");
 	console.log(str);
 	ddg.query(str, options, function(err, data){
 	console.log("yea ... ");
