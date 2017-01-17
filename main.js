@@ -74,7 +74,9 @@ function duck(query,res){
 	},function(error,response,body){
 	if(!error){
 		if(body!=null){
-			console.log(body);	
+			console.log(body.Abstract);
+			console.log(body.Definition);
+			console.log(body.RelatedTopics[0]);	
 		}	
 	}	
 });
