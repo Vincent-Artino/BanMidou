@@ -172,8 +172,6 @@ function sendIMessage(url1,res){
 function sendGMessage(data,res){
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
-	speech : "ssup",
-	displayText : "ssup", 
 	data : {
 	facebook : {
 	attachment : {
@@ -186,9 +184,22 @@ function sendGMessage(data,res){
 	},
         source : "item"
   	});
-	console.log("yea... okay");
-	res.json({displayText : "hey"});	
-	//res.end(json);
+	console.log("yea... okay");	
+	res.write(json);
+	var json1 = JSON.stringify({ 
+	data : {
+	facebook : {
+	attachment : {
+	type : "image",
+	payload : {	
+	url : data.RelatedTopics[1].Icon.URL
+	}	
+	}	
+	}
+	}
+        });
+	res.write(json1);
+	res.end();
 }
 
 app.listen(port);
