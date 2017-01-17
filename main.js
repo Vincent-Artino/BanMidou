@@ -177,7 +177,7 @@ function sendIMessage(url1,res){
    	res.end(json);		
 }
 function sendGMessage(data,res){
-\
+
 }
 
 app.listen(port);
