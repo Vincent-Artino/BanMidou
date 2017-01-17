@@ -177,7 +177,7 @@ function sendGMessage(data,res){
 	attachment : {
 	type : "image",
 	payload : {	
-	url : data.RelatedTopics[0].Icon.URL
+	url : data.Image,
 	}	
 	}	
 	}
@@ -185,21 +185,7 @@ function sendGMessage(data,res){
         source : "item"
   	});
 	console.log("yea... okay");	
-	res.write(json);
-	var json1 = JSON.stringify({ 
-	data : {
-	facebook : {
-	attachment : {
-	type : "image",
-	payload : {	
-	url : data.RelatedTopics[1].Icon.URL
-	}	
-	}	
-	}
-	}
-        });
-	res.write(json1);
-	res.end();
+	res.end(json);
 }
 
 app.listen(port);
