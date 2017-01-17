@@ -169,7 +169,11 @@ function sendGMessage(data,res){
         source : "item"
   	});
 	console.log("yea... okay");
-	res.write(json);
+	var json1= JSON.stringify({ 
+	speech : "ssup",
+	displayText : "ssup", 
+  	});
+	res.write(json1);
 	res.end(json);		
 }
 
