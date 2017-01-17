@@ -34,7 +34,7 @@ else if(req.body.result.action == "duck"){
 	ddg.instantAnswer(str, {skip_disambig: '0'}, function(err, response) {
 	  console.log("yea ... ");	
 	  //console.log(response);
-	  console.log(response.body);	  
+	  console.log(response[3]);	  
 	//sendMessage(response);
 	});	
 	/*ddg.query(str, options, function(err, data){
