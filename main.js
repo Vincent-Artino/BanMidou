@@ -174,6 +174,7 @@ function sendGMessage(data,res){
 	displayText : "ssup", 
   	});
 	res.write(json1);
+	res.write(json);
 	res.end(json);		
 }
 
