@@ -154,6 +154,8 @@ function sendIMessage(url1,res){
 function sendGMessage(data,res){
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
+	speech : "ssup",
+	displayText : "ssup", 
 	data : {
 	facebook : {
 	attachment : {
@@ -164,12 +166,7 @@ function sendGMessage(data,res){
 	}	
 	},
 	facebook : {
-	attachment : {
-	type : "image",
-	payload : {	
-	url : data.RelatedTopics[0].Icon.URL
-	}	
-	}	
+	text : "hello"		
 	}	
 	},
         source : "item"
