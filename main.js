@@ -140,10 +140,10 @@ function sendIMessage(url1,res){
         displayText : "enjoy random Gif", 
 	data : {
 	facebook : {
-	text : "ssup",
 	attachment : {
 	type : "image",
 	payload : {
+	text : "ssup",	
 	url : url1	
 	}	
 	}	
