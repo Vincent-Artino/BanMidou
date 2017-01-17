@@ -164,14 +164,12 @@ function sendGMessage(data,res){
 	url : data.RelatedTopics[0].Icon.URL
 	}	
 	}	
-	},
-	facebook : {
-	text : "hello"		
-	}	
+	}
 	},
         source : "item"
   	});
 	console.log("yea... okay");
+	res.write(json);
 	res.end(json);		
 }
 
