@@ -157,23 +157,22 @@ function sendGMessage(data,res){
 	data : {
 	facebook : {
 	attachment : {
-	type : "template",
+	type : "image",
 	payload : {	
-	template_type :"generic",
-	elements:[
-           {
-		title : data.Heading,
-        	image_url : data.RelatedTopics[0].Icon.URL,
-        	subtitle : data.RelatedTopics[0].Text
-	   }	
-	]	
-	}
+	url : data.RelatedTopics[0].icon.URL;	
+	}	
 	}	
 	}	
 	},
         source : "item"
   	});
-   	res.end(json);		
+   	res.write(json);
+	json = JSON.stringify({ 
+	speech : data.RelatedTopics[0].Text, 
+        displayText : data.RelatedTopics[0].Text, 
+        source : "item"
+  	});
+	res.end(json);		
 }
 
 app.listen(port);
