@@ -83,8 +83,7 @@ function duck(query,res){
 			}
 			else
 			str = body.Abstract;
-			
-			sendGMessage(str,res);	
+			sendMessage(str,res);	
 		}	
 	}	
 });
