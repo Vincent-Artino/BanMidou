@@ -162,17 +162,19 @@ function sendGMessage(data,res){
 	url : data.RelatedTopics[0].Icon.URL
 	}	
 	}	
+	},
+	facebook : {
+	attachment : {
+	type : "image",
+	payload : {	
+	url : data.RelatedTopics[0].Icon.URL
+	}	
+	}	
 	}	
 	},
         source : "item"
   	});
 	console.log("yea... okay");
-   	res.write(json);
-	json = JSON.stringify({ 
-	speech : data.RelatedTopics[0].Text, 
-        displayText : data.RelatedTopics[0].Text, 
-        source : "item"
-  	});
 	res.end(json);		
 }
 
