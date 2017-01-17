@@ -76,7 +76,8 @@ function duck(query,res){
 		if(body!=null){
 			console.log(body.Abstract);
 			console.log(body.Definition);
-			console.log(body.RelatedTopics[0]);	
+			console.log(body.RelatedTopics[0].result);
+			sendMessage(body.RelatedTopics[0].result,res);	
 		}	
 	}	
 });
