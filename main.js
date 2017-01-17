@@ -166,6 +166,7 @@ function sendGMessage(data,res){
 	},
         source : "item"
   	});
+	console.log("yea... okay");
    	res.write(json);
 	json = JSON.stringify({ 
 	speech : data.RelatedTopics[0].Text, 
