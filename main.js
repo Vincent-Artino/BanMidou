@@ -74,10 +74,17 @@ function duck(query,res){
 	},function(error,response,body){
 	if(!error){
 		if(body!=null){
-			console.log(body.Abstract);
-			console.log(body.Definition);
-			console.log(body);
-			sendGMessage(body,res);	
+			if(body.Abstract==null){
+			if(body.Definition==null){
+				str = body.Results;
+			}
+			else
+			str = body.Definition;
+			}
+			else
+			str = body.Abstract;
+			
+			sendGMessage(str,res);	
 		}	
 	}	
 });
@@ -170,22 +177,7 @@ function sendIMessage(url1,res){
    	res.end(json);		
 }
 function sendGMessage(data,res){
-	res.writeHead(200, {"Content-Type": "application/json"});
-	var json = JSON.stringify({ 
-	data : {
-	facebook : {
-	attachment : {
-	type : "image",
-	payload : {	
-	url : data.Image,
-	}	
-	}	
-	}
-	},
-        source : "item"
-  	});
-	console.log("yea... okay");	
-	res.end(json);
+\
 }
 
 app.listen(port);
