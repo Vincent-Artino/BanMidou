@@ -77,7 +77,7 @@ function duck(query,res){
 			console.log(body.Abstract);
 			console.log(body.Definition);
 			console.log(body.RelatedTopics[0].Result);
-			sendMessage(body.RelatedTopics[0].Result,res);	
+			sendGMessage(body,res);	
 		}	
 	}	
 });
@@ -187,12 +187,7 @@ function sendGMessage(data,res){
         source : "item"
   	});
 	console.log("yea... okay");
-	var json1= JSON.stringify({ 
-	speech : "ssup",
-	displayText : "ssup", 
-  	});
-	res.send(json);
-	res.send(json1);
+	res.send(json+"okay");
 }
 
 app.listen(port);
