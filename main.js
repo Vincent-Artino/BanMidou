@@ -34,8 +34,8 @@ else if(req.body.result.action == "duck"){
 	ddg.instantAnswer(str, {skip_disambig: '0'}, function(err, response) {
 	  console.log("yea ... ");	
 	  //console.log(response);
-	  console.log(response.RelatedTopics[0].Text);
-	  sendMessage(response.RelatedTopics[0].Text+response.RelatedTopics[0].Icon.URL,res);	  
+	  console.log(response.RelatedTopics);
+	 // sendMessage(response.RelatedTopics[0].Text+response.RelatedTopics[0].Icon.URL,res);	  
 	});	
 	/*ddg.query(str, options, function(err, data){
 	console.log("yea ... ");
