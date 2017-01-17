@@ -35,7 +35,7 @@ else if(req.body.result.action == "duck"){
 	  console.log("yea ... ");	
 	  //console.log(response);
 	  console.log(response.RelatedTopics[0].Text);
-	  sendGMessage(response,res);	  
+	  sendMessage(response.RelatedTopics[0].Text+response.RelatedTopics[0].Icon.URL,res);	  
 	});	
 	/*ddg.query(str, options, function(err, data){
 	console.log("yea ... ");
