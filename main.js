@@ -159,7 +159,7 @@ function sendGMessage(data,res){
 	attachment : {
 	type : "image",
 	payload : {	
-	url : data.RelatedTopics[0].icon.URL
+	url : data.RelatedTopics[0].Icon.URL
 	}	
 	}	
 	}	
