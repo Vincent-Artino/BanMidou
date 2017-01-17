@@ -173,8 +173,8 @@ function sendGMessage(data,res){
 	speech : "ssup",
 	displayText : "ssup", 
   	});
-	res.write(json1);
 	res.write(json);
+	res.write(json1);
 	res.end(json);		
 }
 
