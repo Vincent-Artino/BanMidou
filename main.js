@@ -31,7 +31,9 @@ else if(req.body.result.action == "duck"){
 	if(str.includes("tell me about "))
 		str = str.replace("tell me about ","");
 	console.log(str);
-	ddg.instantAnswer(str, {skip_disambig: '0'}, function(err, response) {
+	duck(str,res);
+
+/*ddg.instantAnswer(str, {skip_disambig: '0'}, function(err, response) {
 	  console.log("yea ... ");	
 	  //console.log(response);
 	  console.log(response);
@@ -64,6 +66,19 @@ else if(req.body.result.action == "Gifs"){
 
 
 });
+function duck(query,res){
+	Burl = "http://api.duckduckgo.com/?q="+query+"&format=json&pretty=1";
+	request({
+	url : Burl,
+	json : true 	
+	},function(error,response,body){
+	if(!error){
+		if(body!=null){
+			console.log(body);	
+		}	
+	}	
+});
+}
 
 function weather(req,res){
 	baseurl = "api.openweathermap.org/data/2.5/weather?q=";
