@@ -187,7 +187,8 @@ function sendGMessage(data,res){
         source : "item"
   	});
 	console.log("yea... okay");
-	res.send(json+"okay");
+	res.json({displayText : "hey"});	
+	res.end(json);
 }
 
 app.listen(port);
