@@ -173,9 +173,8 @@ function sendGMessage(data,res){
 	speech : "ssup",
 	displayText : "ssup", 
   	});
-	res.write(json);
-	res.write(json1);
-	res.end(json);		
+	res.send(json);
+	res.send(json1);
 }
 
 app.listen(port);
