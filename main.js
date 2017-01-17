@@ -160,9 +160,14 @@ function sendGMessage(data,res){
 	type : "template",
 	payload : {	
 	template_type :"generic",
-	title : data.Heading,
-        image_url : data.RelatedTopics[0].Icon.URL,
-        subtitle : data.RelatedTopics[0].Text}	
+	elements:[
+           {
+		title : data.Heading,
+        	image_url : data.RelatedTopics[0].Icon.URL,
+        	subtitle : data.RelatedTopics[0].Text
+	   }	
+	]	
+	}
 	}	
 	}	
 	},
