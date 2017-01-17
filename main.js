@@ -35,7 +35,7 @@ else if(req.body.result.action == "duck"){
 	  console.log("yea ... ");	
 	  //console.log(response);
 	  console.log(response.RelatedTopics[0].Text);
-	  sendIMessage(response.RelatedTopics[0].Icon.URL,res);	  
+	  sendIMessage(response.RelatedTopics[0].Icon.URL,res,false);	  
 	  sendMessage(response.RelatedTopics[0].Text,res);
 	});	
 	/*ddg.query(str, options, function(err, data){
@@ -58,7 +58,7 @@ else if(req.body.result.action == "Gifs"){
 	url : "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC",	    
 	json: true
 	}, function (error, response, body) {
-		sendIMessage(response.body.data['image_url'],res);
+		sendIMessage(response.body.data['image_url'],res,true);
 		console.log(response.body.data['image_url']);
 	});
 }
@@ -133,7 +133,7 @@ function sendButtonMessage(text,res){
   	});
    	res.end(json);				
 }
-function sendIMessage(url1,res){
+function sendIMessage(url1,res,end){
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
 	speech : "enjoy random Gif", 
@@ -150,6 +150,7 @@ function sendIMessage(url1,res){
 	},
         source : "item"
   	});
+	if(end)
    	res.end(json);		
 }
 app.listen(port);
