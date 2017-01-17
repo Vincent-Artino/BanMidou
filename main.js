@@ -141,7 +141,6 @@ function sendIMessage(url1,res){
 	data : {
 	facebook : {
 	attachment : {
-	text : "ssup",
 	type : "image",
 	payload : {
 	url : url1	
