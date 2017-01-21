@@ -27,29 +27,7 @@ else if(req.body.result.action == "duck"){
 	duck(str,res);
 } 
 else if(req.body.result.action == "test"){
-	sendMessage("testing",res);
-	console.log("vgb");
-	request({
-	headers:{
-	Authorization: "Bearer bc8afaee2fd248449d275ec15a782b97"		
-	},	
-	url : "https://api.api.ai/v1/query?v=20150910",
-	json : true,
-	body : {
-		query : ["gifs"],
-		contexts : [{
-		name: "gifs",
-		lifespan: 4}],
-		lang: "en",
-	    	sessionId: "1234567890"
-		
-	}	
-	},function(error,response,body){
-		if(!error){
-			console.log(response);
-					
-		}
-	});
+	sendGMessage("okay",res);
 }
 else if(req.body.result.action == "Gifs"){
 	console.log("hjdv skd");
@@ -174,7 +152,13 @@ function sendIMessage(url1,res){
    	res.end(json);		
 }
 function sendGMessage(data,res){
-
+	res.writeHead(200, {"Content-Type": "application/json"});
+	var json = JSON.stringify({ 
+	speech : text, 
+        displayText : text, 
+        source : "item"
+  	});
+   	res.write(json);
 }
 
 app.listen(port);
