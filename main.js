@@ -10,13 +10,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 var speech;
-var DDG = require('node-ddg-api').DDG;
-var ddg = new DDG('sarah');
-options = {
-        "useragent": "My duckduckgo app",
-        "no_redirects": "1",
-        "no_html": "0",
-}
 //okay
 app.post('/webhook', function (req, res) {
 if(req.body.result.action == "weather"){
@@ -32,26 +25,23 @@ else if(req.body.result.action == "duck"){
 		str = str.replace("tell me about ","");
 	console.log(str);
 	duck(str,res);
-
-/*ddg.instantAnswer(str, {skip_disambig: '0'}, function(err, response) {
-	  console.log("yea ... ");	
-	  //console.log(response);
-	  console.log(response);
-	 // sendMessage(response.RelatedTopics[0].Text+response.RelatedTopics[0].Icon.URL,res);	  
-	});	
-	/*ddg.query(str, options, function(err, data){
-	console.log("yea ... ");
-   	console.log(data.AbstractText);
-	link = "\n\nfor more info refer : \n\n" + data.AbstractURL;
-	if(data.AbstractText!="")
-	sendMessage(data.AbstractText + link,res);
-	else 
-	sendMessage("no info available",res);
-	
-});*/
 } 
-else if(req.body.result.action == "help"){
-	//sendButtonMessage("Choose any action",res);
+else if(req.body.result.action == "test"){
+	request({
+	headers:{
+	Authorization: Bearer "bc8afaee2fd248449d275ec15a782b97"	
+	Content-Type: application/json; charset=utf-8
+	}	
+	url : "https://api.api.ai/v1/query?v=20150910"
+	body : {
+		query : ["who are you"]
+		
+	}	
+	},function(error,res,body){
+		if(!error){
+			console.log("in help");		
+		}
+	});
 }
 else if(req.body.result.action == "Gifs"){
 	console.log("hjdv skd");
