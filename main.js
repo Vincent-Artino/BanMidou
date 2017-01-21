@@ -28,6 +28,7 @@ else if(req.body.result.action == "duck"){
 } 
 else if(req.body.result.action == "test"){
 	sendGMessage("okay",res);
+	sendGMessage("write",res);
 }
 else if(req.body.result.action == "Gifs"){
 	console.log("hjdv skd");
