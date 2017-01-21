@@ -27,6 +27,7 @@ else if(req.body.result.action == "duck"){
 	duck(str,res);
 } 
 else if(req.body.result.action == "test"){
+	sendMessage("testing",okay);
 	console.log("vgb");
 	request({
 	headers:{
@@ -43,9 +44,10 @@ else if(req.body.result.action == "test"){
 	    	sessionId: "1234567890"
 		
 	}	
-	},function(error,res,body){
+	},function(error,response,body){
 		if(!error){
-			console.log("apparently made a request");		
+			console.log(response);
+					
 		}
 	});
 }
