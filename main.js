@@ -38,7 +38,9 @@ else if(req.body.result.action == "test"){
 		query : ["gifs"],
 		contexts : [{
 		name: "gifs",
-		lifespan: 4}]
+		lifespan: 4}],
+		lang: "en",
+	    	sessionId: "1234567890"
 		
 	}	
 	},function(error,res,body){
