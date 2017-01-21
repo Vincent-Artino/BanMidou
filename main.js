@@ -35,12 +35,15 @@ else if(req.body.result.action == "test"){
 	url : "https://api.api.ai/v1/query?v=20150910",
 	json : true,
 	body : {
-		query : ["who are you"]
+		query : ["gifs"],
+		contexts : [{
+		name: "gifs",
+		lifespan: 4}]
 		
 	}	
 	},function(error,res,body){
 		if(!error){
-			console.log("in help");		
+			console.log("apparently made a request");		
 		}
 	});
 }
