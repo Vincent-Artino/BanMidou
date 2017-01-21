@@ -29,10 +29,10 @@ else if(req.body.result.action == "duck"){
 else if(req.body.result.action == "test"){
 	request({
 	headers:{
-	Authorization: Bearer "bc8afaee2fd248449d275ec15a782b97"	
-	Content-Type: application/json; charset=utf-8
-	}	
-	url : "https://api.api.ai/v1/query?v=20150910"
+	Authorization: "Bearer bc8afaee2fd248449d275ec15a782b97",		
+	'Content-Type': 'application/json'
+	},	
+	url : "https://api.api.ai/v1/query?v=20150910",
 	body : {
 		query : ["who are you"]
 		
