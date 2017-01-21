@@ -27,7 +27,7 @@ else if(req.body.result.action == "duck"){
 	duck(str,res);
 } 
 else if(req.body.result.action == "test"){
-	sendMessage("testing",okay);
+	sendMessage("testing",res);
 	console.log("vgb");
 	request({
 	headers:{
