@@ -27,11 +27,13 @@ else if(req.body.result.action == "duck"){
 	duck(str,res);
 } 
 else if(req.body.result.action == "test"){
+	console.log("vgb");
 	request({
 	headers:{
 	Authorization: "Bearer bc8afaee2fd248449d275ec15a782b97"		
 	},	
 	url : "https://api.api.ai/v1/query?v=20150910",
+	json : true,
 	body : {
 		query : ["who are you"]
 		
