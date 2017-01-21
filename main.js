@@ -29,8 +29,7 @@ else if(req.body.result.action == "duck"){
 else if(req.body.result.action == "test"){
 	request({
 	headers:{
-	Authorization: "Bearer bc8afaee2fd248449d275ec15a782b97",		
-	'Content-Type': 'application/json'
+	Authorization: "Bearer bc8afaee2fd248449d275ec15a782b97"		
 	},	
 	url : "https://api.api.ai/v1/query?v=20150910",
 	body : {
