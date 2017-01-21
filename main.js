@@ -28,7 +28,6 @@ else if(req.body.result.action == "duck"){
 } 
 else if(req.body.result.action == "test"){
 	sendGMessage("okay",res);
-	sendGMessage("write",res);
 }
 else if(req.body.result.action == "Gifs"){
 	console.log("hjdv skd");
@@ -159,6 +158,10 @@ function sendGMessage(text,res){
         displayText : text, 
      	 });
    	res.write(json);
+	var json1 = JSON.stringify({
+	displayText : "naah man"
+	})
+	res.write(json1);
 }
 
 app.listen(port);
