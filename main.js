@@ -151,13 +151,12 @@ function sendIMessage(url1,res){
   	});
    	res.end(json);		
 }
-function sendGMessage(data,res){
+function sendGMessage(text,res){
 	res.writeHead(200, {"Content-Type": "application/json"});
 	var json = JSON.stringify({ 
 	speech : text, 
         displayText : text, 
-        source : "item"
-  	});
+     	 });
    	res.write(json);
 }
 
