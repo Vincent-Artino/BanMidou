@@ -159,6 +159,7 @@ function sendGMessage(text,res){
      	 });
    	res.write(json);
 	var json1 = JSON.stringify({
+	speech : "okay aa",
 	displayText : "naah man"
 	})
 	res.write(json1);
