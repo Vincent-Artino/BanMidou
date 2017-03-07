@@ -27,10 +27,6 @@ else if(req.body.result.action == "duck"){
 	console.log(str);
 	duck(str,res);
 } 
-else if(req.body.result.action == "hello"){
-	console.log("orey");	
-	callSendAPI("osey edava");
-}
 else if(req.body.result.action == "Gifs"){
 	console.log("hjdv skd");
 	request({
